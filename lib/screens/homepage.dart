@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:football_app/api.dart';
+import 'package:football_app/components/appbar.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
@@ -28,18 +29,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: const Color(0xFF2B303D),
-          title: Text(
-            'MATCHES',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontFamily: 'DIN Pro',
-              fontWeight: FontWeight.w900,
-              height: 0,
-            ),
-          )),
+        backgroundColor: const Color(0xFF2B303D),
+        title: const appBar(title: 'MATCHES'),
+      ),
       body: ListView.builder(
         itemCount: matches.length,
         itemBuilder: (context, index) {
