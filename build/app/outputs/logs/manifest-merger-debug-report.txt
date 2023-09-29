@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:2:5-32:19
+INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:7:5-37:19
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/adityadave/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/adityadave/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.core:core:1.6.0] /Users/adityadave/.gradle/caches/transforms-3/7e9df2ac2213a6bd3cef0f2f27870d79/transformed/core-1.6.0/AndroidManifest.xml:24:5-89
@@ -12,11 +12,12 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/adit
 	android:name
 		INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml
 manifest
-ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-33:12
-MERGED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-33:12
+ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-38:12
+INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-38:12
+INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-38:12
+INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-38:12
+MERGED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-38:12
+MERGED from [:path_provider_android] /Users/adityadave/Desktop/football_app/football_app/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/adityadave/.gradle/caches/transforms-3/ae81e06d24c799147c26814497a2a305/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/adityadave/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/adityadave/.gradle/caches/transforms-3/75f94412898c7559d34d7edbbeaeb394/transformed/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -38,23 +39,38 @@ INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/sr
 INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 	package
+		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:70-104
 		INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-33:12
+		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:70-104
 		INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/debug/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-33:12
+		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-38:12
 		INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/debug/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-33:12
+		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:1-38:12
 		INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.MANAGE_EXTERNAL_STORAGE
+ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:2:5-3:69
+	android:name
+		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:3:9-66
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:4:5-80
+	android:name
+		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:4:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:5:5-81
+	android:name
+		ADDED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml:5:22-78
 uses-sdk
 INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/adityadave/Desktop/football_app/football_app/android/app/src/main/AndroidManifest.xml
+MERGED from [:path_provider_android] /Users/adityadave/Desktop/football_app/football_app/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] /Users/adityadave/Desktop/football_app/football_app/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/adityadave/.gradle/caches/transforms-3/ae81e06d24c799147c26814497a2a305/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/adityadave/.gradle/caches/transforms-3/ae81e06d24c799147c26814497a2a305/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/adityadave/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41

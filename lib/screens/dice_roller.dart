@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:football_app/components/appbar.dart';
+import 'package:football_app/screens/homepage.dart';
+import 'package:hive/hive.dart';
 
 class DiceRoller extends StatefulWidget {
   const DiceRoller({super.key});
@@ -27,7 +29,7 @@ class _DiceRollerState extends State<DiceRoller> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF2B303D),
-        title: const appBar(title: 'DICE'),
+        title: const Center(child: appBar(title: 'DICE')),
       ),
       body: Center(
         child: Column(
@@ -47,8 +49,8 @@ class _DiceRollerState extends State<DiceRoller> {
                   ),
                 ),
                 SizedBox(
-                  width: 100,
-                  height: 100,
+                  width: 200,
+                  height: 110,
                   child: Text(
                     randomNumber.toString(),
                     textAlign: TextAlign.center,
@@ -60,7 +62,7 @@ class _DiceRollerState extends State<DiceRoller> {
                       height: 0,
                     ),
                   ),
-                )
+                ),
               ],
             ),
             const SizedBox(height: 20),
@@ -70,7 +72,18 @@ class _DiceRollerState extends State<DiceRoller> {
                 backgroundColor: const Color(0x992B303D),
                 side: const BorderSide(width: 2, color: Color(0xFF2B303D)),
               ),
-              onPressed: generateRandomNumber,
+              onPressed: () async {
+                generateRandomNumber();
+                var box = await Hive.openBox('randomNumber');
+                await box.put('randNum', '$randomNumber');
+                print(box.get('randNum'));
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
+                );
+              },
               child: const SizedBox(
                 width: 306,
                 height: 64,
