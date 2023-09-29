@@ -14,6 +14,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<dynamic> matches = [];
 
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
   void fetchData() async {
     const url = LiveDataAPIKey;
     final uri = Uri.parse(url);
@@ -30,19 +36,35 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF2B303D),
-        title: const appBar(title: 'MATCHES'),
+        title: const Center(child: appBar(title: 'MATCHES')),
       ),
       body: ListView.builder(
         itemCount: matches.length,
         itemBuilder: (context, index) {
           final match = matches[index];
-          final team1 = match['league']['name'];
+          final team1 = match['home']['name'];
+          final team2 = match['away']['name'];
+          final score = match['score'];
           return ListTile(
-            title: Text(team1),
-          );
+              leading: Text(score),
+              title: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(team1),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(team2),
+                  ),
+                  // Text(team2),
+                ],
+              ));
         },
       ),
-      floatingActionButton: FloatingActionButton(onPressed: fetchData),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+      ),
     );
   }
 }
