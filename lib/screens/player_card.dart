@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/components/appbar.dart';
+import 'package:football_app/screens/my_collection.dart';
+import 'package:football_app/screens/my_team.dart';
 
 class PlayerCard extends StatefulWidget {
   const PlayerCard({super.key});
@@ -42,7 +44,14 @@ class _PlayerCardState extends State<PlayerCard> {
                 backgroundColor: const Color(0x992B303D),
                 side: const BorderSide(width: 2, color: Color(0xFF2B303D)),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyTeam(),
+                  ),
+                );
+              },
               child: const SizedBox(
                 width: 306,
                 height: 64,
@@ -56,7 +65,14 @@ class _PlayerCardState extends State<PlayerCard> {
                 backgroundColor: const Color(0x992B303D),
                 side: const BorderSide(width: 2, color: Color(0xFF2B303D)),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyCollection(),
+                  ),
+                );
+              },
               child: const SizedBox(
                 width: 306,
                 height: 64,

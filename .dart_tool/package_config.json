@@ -86,6 +86,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "hive_flutter",
+      "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/hive_flutter-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "http",
       "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/http-1.1.0",
       "packageUri": "lib/",
@@ -266,7 +272,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-09-29T13:03:46.675900Z",
+  "generated": "2023-10-04T03:42:25.521909Z",
   "generator": "pub",
   "generatorVersion": "3.1.2"
 }
