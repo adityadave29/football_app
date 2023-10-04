@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:football_app/components/appbar.dart';
-import 'package:football_app/screens/homepage.dart';
 import 'package:football_app/screens/player_card.dart';
 import 'package:hive/hive.dart';
 

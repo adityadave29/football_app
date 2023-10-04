@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Stream<int> timerStream =
-      Stream<int>.periodic(Duration(seconds: 1), (x) => x);
+      Stream<int>.periodic(Duration(seconds: 60), (x) => x);
   List<dynamic> matches = []; // live_data
   late Timer _timer; // Timer for updating UI
   String storedRandomNumber = '0'; // random number for display
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
 
   // Start a timer to update the UI every second
   void _getRemainingTimeAndUpdate() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(Duration(seconds: 60), (timer) {
       setState(() {});
     });
   }
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
       }
     }
 
-    return null; 
+    return null;
   }
 
   // get live data from api

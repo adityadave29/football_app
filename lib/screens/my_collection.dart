@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:football_app/components/appbar.dart';
 
 class MyCollection extends StatefulWidget {
   const MyCollection({super.key});
@@ -10,6 +11,12 @@ class MyCollection extends StatefulWidget {
 class _MyCollectionState extends State<MyCollection> {
   @override
   Widget build(BuildContext context) {
-    return Text('Collection');
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF2B303D),
+        title: appBar(title: 'MY COLLECTION'), // appBar is in component
+        centerTitle: true,
+      ),
+    );
   }
 }
