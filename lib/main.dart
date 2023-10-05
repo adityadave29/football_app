@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:football_app/components/players_attributes.dart';
 import 'package:football_app/screens/homepage.dart';
 import 'package:football_app/screens/my_collection.dart';
 import 'package:football_app/screens/my_team.dart';

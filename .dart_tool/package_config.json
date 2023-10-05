@@ -74,6 +74,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "flutter_svg",
+      "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/flutter_svg-0.22.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/adityadave/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -134,6 +140,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "path_drawing",
+      "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/path_drawing-0.5.1+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_parsing",
+      "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/path_parsing-0.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path_provider",
       "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/path_provider-2.1.1",
       "packageUri": "lib/",
@@ -166,6 +184,12 @@
     {
       "name": "path_provider_windows",
       "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/path_provider_windows-2.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "petitparser",
+      "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/petitparser-5.4.0",
       "packageUri": "lib/",
       "languageVersion": "2.19"
     },
@@ -266,13 +290,19 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "xml",
+      "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/xml-5.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "football_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-10-04T03:42:25.521909Z",
+  "generated": "2023-10-05T14:07:50.008511Z",
   "generator": "pub",
   "generatorVersion": "3.1.2"
 }

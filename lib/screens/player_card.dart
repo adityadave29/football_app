@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:football_app/api.dart';
 import 'package:football_app/components/appbar.dart';
+import 'package:football_app/components/card_fontstyle.dart';
+import 'package:football_app/components/players_attributes.dart';
 import 'package:football_app/models/player.dart';
 import 'package:football_app/screens/my_collection.dart';
 import 'package:football_app/screens/my_team.dart';
@@ -25,14 +27,24 @@ class _PlayerCardState extends State<PlayerCard> {
   }
 
   Future<Player> fetchPlayerData() async {
-    final response = await http.get(Uri.parse(PlayerData));
+    final Random random = Random();
+    int randomNumber;
 
-    if (response.statusCode == 200) {
-      final jsonMap = json.decode(response.body);
-      return Player.fromJson(jsonMap);
-    } else {
-      throw Exception('Failed to load player data');
+    Player? player;
+
+    while (player == null) {
+      randomNumber = random.nextInt(100);
+
+      final response = await http.get(Uri.parse(
+          'https://spoyer.com/api/en/get.php?login=ayna&token=12784-OhJLY5mb3BSOx0O&task=playerdata&player=$randomNumber'));
+
+      if (response.statusCode == 200) {
+        final jsonMap = json.decode(response.body);
+        player = Player.fromJson(jsonMap);
+      }
     }
+
+    return player;
   }
 
   @override
@@ -73,28 +85,18 @@ class _PlayerCardState extends State<PlayerCard> {
                         children: [
                           Container(
                             padding: EdgeInsets.only(top: 290, left: 90),
-                            child: Text(
-                              '${player?.name}',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontFamily: 'DIN Pro',
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
+                            child: CardFontStyle(
+                                size: 18, fontDetail: '${player?.name}'),
                           ),
                           Positioned(
-                            left: 200,
-                            top: 1,
-                            child: Text(
-                              '${player?.position}',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
-                                fontFamily: 'DIN Pro',
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
+                              left: 210,
+                              bottom: 300,
+                              child: CardFontStyle(
+                                  size: 10, fontDetail: '${player?.position}')),
+                          Container(
+                            padding: EdgeInsets.only(top: 290),
+                            child: CardFontStyle(
+                                size: 40, fontDetail: '${player?.id}'),
                           ),
                         ],
                       );
