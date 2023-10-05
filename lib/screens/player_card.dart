@@ -1,10 +1,8 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:football_app/api.dart';
 import 'package:football_app/components/appbar.dart';
 import 'package:football_app/components/card_fontstyle.dart';
-import 'package:football_app/components/players_attributes.dart';
 import 'package:football_app/models/player.dart';
 import 'package:football_app/screens/my_collection.dart';
 import 'package:football_app/screens/my_team.dart';
@@ -19,6 +17,8 @@ class PlayerCard extends StatefulWidget {
 
 class _PlayerCardState extends State<PlayerCard> {
   List<dynamic> players = [];
+  String? selectedName;
+  String? selectedId;
 
   @override
   void initState() {
@@ -81,6 +81,8 @@ class _PlayerCardState extends State<PlayerCard> {
                       return Text('Error: ${snapshot.error}');
                     } else {
                       final player = snapshot.data;
+                      selectedName = player?.name;
+                      selectedId = player?.id;
                       return Stack(
                         children: [
                           Container(
@@ -113,10 +115,11 @@ class _PlayerCardState extends State<PlayerCard> {
                 side: const BorderSide(width: 2, color: Color(0xFF2B303D)),
               ),
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const MyTeam(),
+                    builder: (context) =>
+                        MyTeam(name: selectedName!, id: selectedId!),
                   ),
                 );
               },
@@ -134,10 +137,11 @@ class _PlayerCardState extends State<PlayerCard> {
                 side: const BorderSide(width: 2, color: Color(0xFF2B303D)),
               ),
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const MyCollection(),
+                    builder: (context) =>
+                        MyCollection(name: selectedName!, id: selectedId!),
                   ),
                 );
               },
