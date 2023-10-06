@@ -6,6 +6,7 @@ import 'package:football_app/components/card_fontstyle.dart';
 import 'package:football_app/models/player.dart';
 import 'package:football_app/screens/my_collection.dart';
 import 'package:football_app/screens/my_team.dart';
+import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 
 class PlayerCard extends StatefulWidget {
@@ -26,11 +27,11 @@ class _PlayerCardState extends State<PlayerCard> {
     fetchPlayerData();
   }
 
-  Future<Player> fetchPlayerData() async {
+  Future<PlayerData> fetchPlayerData() async {
     final Random random = Random();
     int randomNumber;
 
-    Player? player;
+    PlayerData? player;
 
     while (player == null) {
       randomNumber = random.nextInt(100);
@@ -40,7 +41,7 @@ class _PlayerCardState extends State<PlayerCard> {
 
       if (response.statusCode == 200) {
         final jsonMap = json.decode(response.body);
-        player = Player.fromJson(jsonMap);
+        player = PlayerData.fromJson(jsonMap);
       }
     }
 
@@ -72,7 +73,7 @@ class _PlayerCardState extends State<PlayerCard> {
                     ),
                   ),
                 ),
-                FutureBuilder<Player>(
+                FutureBuilder<PlayerData>(
                   future: fetchPlayerData(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
@@ -114,7 +115,10 @@ class _PlayerCardState extends State<PlayerCard> {
                 backgroundColor: const Color(0x992B303D),
                 side: const BorderSide(width: 2, color: Color(0xFF2B303D)),
               ),
-              onPressed: () {
+              onPressed: () async {
+                var box = await Hive.openBox('playerData');
+                await box.put('playerName', selectedName);
+                print(box.get('playerName'));
                 Navigator.push(
                   context,
                   MaterialPageRoute(

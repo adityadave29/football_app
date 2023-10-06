@@ -1,17 +1,17 @@
-class Player {
+class PlayerData {
   final String name;
   final String position;
   final String id;
 
-  Player({
+  PlayerData({
     required this.name,
     required this.position,
     required this.id,
   });
 
-  factory Player.fromJson(Map<String, dynamic> json) {
+  factory PlayerData.fromJson(Map<String, dynamic> json) {
     final results = json['results']['player'];
-    return Player(
+    return PlayerData(
       name: results['name'],
       id: results['id'],
       position: results['position'],
