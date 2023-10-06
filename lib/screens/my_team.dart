@@ -15,7 +15,6 @@ class _MyTeamState extends State<MyTeam> {
   List<String> playerNameList = [];
   String? playerName;
   String? playerId;
-  String displayName = '';
 
   @override
   void initState() {
@@ -28,9 +27,8 @@ class _MyTeamState extends State<MyTeam> {
   void _getPlayerName() async {
     var box = await Hive.openBox('playerData');
     setState(() {
-      displayName = box.get('playerName');
-      playerNameList.add(displayName);
-      print(displayName);
+      playerNameList = box.get('playerNameList') ?? [];
+      print(playerNameList);
     });
   }
 
@@ -43,8 +41,7 @@ class _MyTeamState extends State<MyTeam> {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemCount:
-            playerNameList.length,
+        itemCount: playerNameList.length,
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
             title: Text(playerNameList[index]),

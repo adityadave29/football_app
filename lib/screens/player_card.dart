@@ -116,9 +116,14 @@ class _PlayerCardState extends State<PlayerCard> {
                 side: const BorderSide(width: 2, color: Color(0xFF2B303D)),
               ),
               onPressed: () async {
+                // var box = await Hive.openBox('playerData');
+                // await box.put('playerName', selectedName);
+                // print(box.get('playerName'));
                 var box = await Hive.openBox('playerData');
-                await box.put('playerName', selectedName);
-                print(box.get('playerName'));
+                List<String> playerNameList = box.get('playerNameList') ?? [];
+                playerNameList.add(selectedName!);
+                await box.put('playerNameList', playerNameList);
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -140,7 +145,13 @@ class _PlayerCardState extends State<PlayerCard> {
                 backgroundColor: const Color(0x992B303D),
                 side: const BorderSide(width: 2, color: Color(0xFF2B303D)),
               ),
-              onPressed: () {
+              onPressed: () async {
+                var box = await Hive.openBox('playerCollectionData');
+                List<String> playerNameCollectionList =
+                    box.get('playerNameCollectionList') ?? [];
+                playerNameCollectionList.add(selectedName!);
+                await box.put(
+                    'playerNameCollectionList', playerNameCollectionList);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
