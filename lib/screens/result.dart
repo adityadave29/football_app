@@ -12,6 +12,9 @@ class _ResultState extends State<Result> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+        ),
         body: Stack(
           children: [
             Container(
@@ -28,9 +31,7 @@ class _ResultState extends State<Result> {
               ),
             ),
             Column(
-              children: [
-                
-              ],
+              children: [],
             )
           ],
         ),

@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
           final match = matches[index];
           final team1 = match['home']['name'];
           final team2 = match['away']['name'];
-          // final score = match['score'];
+          final score = match['score'];
           return ListTile(
             onTap: () {
               showDialog(

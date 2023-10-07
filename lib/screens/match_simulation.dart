@@ -12,6 +12,9 @@ class _MatchSimulationState extends State<MatchSimulation> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+        ),
         body: Stack(
           children: [
             Container(
@@ -28,9 +31,7 @@ class _MatchSimulationState extends State<MatchSimulation> {
               ),
             ),
             Column(
-              children: [
-                
-              ],
+              children: [],
             )
           ],
         ),
