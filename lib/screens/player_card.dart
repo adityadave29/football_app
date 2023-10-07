@@ -27,7 +27,7 @@ class _PlayerCardState extends State<PlayerCard> {
     fetchPlayerData();
   }
 
-  Future<PlayerData> fetchPlayerData() async {
+  Future<PlayerData?> fetchPlayerData() async {
     final Random random = Random();
     int randomNumber;
 
@@ -41,7 +41,11 @@ class _PlayerCardState extends State<PlayerCard> {
 
       if (response.statusCode == 200) {
         final jsonMap = json.decode(response.body);
-        player = PlayerData.fromJson(jsonMap);
+        final success = jsonMap['success'];
+
+        if (success == 1) {
+          player = PlayerData.fromJson(jsonMap);
+        }
       }
     }
 
@@ -110,7 +114,7 @@ class _PlayerCardState extends State<PlayerCard> {
                             //     ),
                             //   ),
                             // ),
-                            FutureBuilder<PlayerData>(
+                            FutureBuilder<PlayerData?>(
                               future: fetchPlayerData(),
                               builder: (context, snapshot) {
                                 if (snapshot.connectionState ==
