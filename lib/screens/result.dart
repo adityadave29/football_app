@@ -10,6 +10,31 @@ class Result extends StatefulWidget {
 class _ResultState extends State<Result> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/ground.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.2),
+              ),
+            ),
+            Column(
+              children: [
+                
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

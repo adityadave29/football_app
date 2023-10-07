@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:football_app/api.dart';
 import 'package:football_app/components/appbar.dart';
 import 'package:football_app/screens/dice_roller.dart';
+import 'package:football_app/screens/match_simulation.dart';
 import 'package:http/http.dart' as http;
 import 'package:hive/hive.dart';
 
@@ -17,8 +18,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Stream<int> timerStream =
       Stream<int>.periodic(Duration(seconds: 60), (x) => x);
-  List<dynamic> matches = []; // live_data
-  late Timer _timer; // Timer for updating UI
+  List<dynamic> matches = []; //! live_data
+  late Timer _timer; //r Timer for updating UI
   String storedRandomNumber = '0'; // random number for display
 
   @override
@@ -96,18 +97,133 @@ class _HomePageState extends State<HomePage> {
           final team2 = match['away']['name'];
           final score = match['score'];
           return ListTile(
-            leading: Text(score),
-            title: Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(team1),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(team2),
-                ),
-              ],
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Team Names'),
+                    content: SingleChildScrollView(
+                      child: ListBody(
+                        children: <Widget>[
+                          Text('Team 1: $team1'),
+                          Text('Team 2: $team2'),
+                        ],
+                      ),
+                    ),
+                    actions: <Widget>[
+                      TextButton(
+                        child: Text('Team1'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MatchSimulation(),
+                            ),
+                          );
+                        },
+                      ),
+                      TextButton(
+                        child: Text('Team2'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MatchSimulation(),
+                            ),
+                          );
+                        },
+                      ),
+                      TextButton(
+                        child: Text('Close'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            // leading: Text(score),
+            // title: Column(
+            //   children: [
+            //     Align(
+            //       alignment: Alignment.centerLeft,
+            //       child: Text(team1),
+            //     ),
+            //     Align(
+            //       alignment: Alignment.centerLeft,
+            //       child: Text(team2),
+            //     ),
+            //   ],
+            // ),
+            title: Container(
+              child: Column(
+                children: [
+                  Container(
+                    child: Text(
+                      'TODAY',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xFF2F3542),
+                        fontSize: 15,
+                        fontFamily: 'DIN Pro',
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                    margin: EdgeInsets.symmetric(horizontal: 2, vertical: 5),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/ground.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            team1,
+                            softWrap: true,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontFamily: 'DIN Pro',
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "-",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontFamily: 'DIN Pro',
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            team2,
+                            softWrap: true,
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontFamily: 'DIN Pro',
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },
