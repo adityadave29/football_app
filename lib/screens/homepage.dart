@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
           final match = matches[index];
           final team1 = match['home']['name'];
           final team2 = match['away']['name'];
-          final score = match['score'];
+          // final score = match['score'];
           return ListTile(
             onTap: () {
               showDialog(
@@ -145,19 +145,6 @@ class _HomePageState extends State<HomePage> {
                 },
               );
             },
-            // leading: Text(score),
-            // title: Column(
-            //   children: [
-            //     Align(
-            //       alignment: Alignment.centerLeft,
-            //       child: Text(team1),
-            //     ),
-            //     Align(
-            //       alignment: Alignment.centerLeft,
-            //       child: Text(team2),
-            //     ),
-            //   ],
-            // ),
             title: Container(
               child: Column(
                 children: [
