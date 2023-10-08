@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MatchSimulation extends StatefulWidget {
-  const MatchSimulation({super.key, required this.flag});
+  const MatchSimulation({
+    super.key,
+    required this.flag,
+  });
 
   final String flag;
 
@@ -10,6 +13,12 @@ class MatchSimulation extends StatefulWidget {
 }
 
 class _MatchSimulationState extends State<MatchSimulation> {
+  String? teamFlag;
+  void initState() {
+    super.initState();
+    teamFlag = widget.flag;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

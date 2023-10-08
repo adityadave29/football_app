@@ -21,6 +21,8 @@ class _HomePageState extends State<HomePage> {
   List<dynamic> matches = []; //! live_data
   late Timer _timer; //r Timer for updating UI
   String storedRandomNumber = '0'; // random number for display
+  String teamSim1 = '';
+  String teamSim2 = '';
 
   @override
   void initState() {
@@ -95,6 +97,10 @@ class _HomePageState extends State<HomePage> {
           final match = matches[index];
           final team1 = match['home']['name'];
           final team2 = match['away']['name'];
+
+          teamSim1 = team1;
+          teamSim2 = team2;
+
           return ListTile(
             title: Container(
               child: Column(
@@ -257,7 +263,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -277,7 +283,7 @@ class _HomePageState extends State<HomePage> {
                               // ),
                               TextButton(
                                 child: Container(
-                                  padding: EdgeInsets.only(left: 3, right: 3),
+                                  padding: EdgeInsets.only(left: 3, right: 5),
                                   child: Image(
                                     image:
                                         AssetImage('assets/images/button.png'),
@@ -287,8 +293,7 @@ class _HomePageState extends State<HomePage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>
-                                          const MatchSimulation(
+                                      builder: (context) => MatchSimulation(
                                         flag: '1',
                                       ),
                                     ),
@@ -300,7 +305,7 @@ class _HomePageState extends State<HomePage> {
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 8,
+                                  fontSize: 8.5,
                                   fontFamily: 'DIN Pro',
                                   fontWeight: FontWeight.w900,
                                 ),
@@ -321,7 +326,7 @@ class _HomePageState extends State<HomePage> {
                               // ),
                               TextButton(
                                 child: Container(
-                                  padding: EdgeInsets.only(left: 3, right: 3),
+                                  padding: EdgeInsets.only(left: 5, right: 3),
                                   child: Image(
                                     image:
                                         AssetImage('assets/images/button.png'),
@@ -331,8 +336,7 @@ class _HomePageState extends State<HomePage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>
-                                          const MatchSimulation(
+                                      builder: (context) => MatchSimulation(
                                         flag: '2',
                                       ),
                                     ),
