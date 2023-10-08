@@ -95,56 +95,7 @@ class _HomePageState extends State<HomePage> {
           final match = matches[index];
           final team1 = match['home']['name'];
           final team2 = match['away']['name'];
-          final score = match['score'];
           return ListTile(
-            onTap: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: Text('Team Names'),
-                    content: SingleChildScrollView(
-                      child: ListBody(
-                        children: <Widget>[
-                          Text('Team 1: $team1'),
-                          Text('Team 2: $team2'),
-                        ],
-                      ),
-                    ),
-                    actions: <Widget>[
-                      TextButton(
-                        child: Text('Team1'),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MatchSimulation(),
-                            ),
-                          );
-                        },
-                      ),
-                      TextButton(
-                        child: Text('Team2'),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MatchSimulation(),
-                            ),
-                          );
-                        },
-                      ),
-                      TextButton(
-                        child: Text('Close'),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                    ],
-                  );
-                },
-              );
-            },
             title: Container(
               child: Column(
                 children: [
@@ -214,6 +165,189 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            //! ON TAP
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Theme(
+                      data: ThemeData(
+                        dialogBackgroundColor: Color(0xFF2B303D),
+                        cardColor: Color(0xFF2B303D),
+                      ),
+                      child: AlertDialog(
+                        title: Center(
+                          child: Text(
+                            'TODAY',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 34,
+                              fontFamily: 'DIN Pro',
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ),
+                        content: SingleChildScrollView(
+                          child: ListBody(
+                            children: <Widget>[
+                              // Text('Team 1: $team1'),
+                              // Text(
+                              //   'Team 2: $team2',
+                              //   style: TextStyle(
+                              //     color: Colors.white,
+                              //   ),
+                              // ),
+                              Column(
+                                children: [
+                                  Container(
+                                    height: 100,
+                                    width: double.infinity,
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 20),
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: 2, vertical: 5),
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/ground.png'),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            team1,
+                                            softWrap: true,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontFamily: 'DIN Pro',
+                                              fontWeight: FontWeight.w900,
+                                            ),
+                                          ),
+                                        ),
+                                        Text(
+                                          "-",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontFamily: 'DIN Pro',
+                                            fontWeight: FontWeight.w900,
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Text(
+                                            team2,
+                                            softWrap: true,
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontFamily: 'DIN Pro',
+                                              fontWeight: FontWeight.w900,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        actions: <Widget>[
+                          Row(
+                            children: [
+                              // TextButton(
+                              //   child: Text('Team1'),
+                              //   onPressed: () {
+                              //     Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //         builder: (context) => MatchSimulation(),
+                              //       ),
+                              //     );
+                              //   },
+                              // ),
+                              TextButton(
+                                child: Container(
+                                  padding: EdgeInsets.only(left: 3, right: 3),
+                                  child: Image(
+                                    image:
+                                        AssetImage('assets/images/button.png'),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MatchSimulation(
+                                        flag: '1',
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                              Text(
+                                'PLAY IN THIS MATCH',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 8,
+                                  fontFamily: 'DIN Pro',
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                              // TextButton(
+                              //   child: Text(
+                              //     'Team2',
+                              //     textAlign: TextAlign.right,
+                              //   ),
+                              //   onPressed: () {
+                              //     Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //         builder: (context) => MatchSimulation(),
+                              //       ),
+                              //     );
+                              //   },
+                              // ),
+                              TextButton(
+                                child: Container(
+                                  padding: EdgeInsets.only(left: 3, right: 3),
+                                  child: Image(
+                                    image:
+                                        AssetImage('assets/images/button.png'),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MatchSimulation(
+                                        flag: '2',
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
           );
         },
       ),

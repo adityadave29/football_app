@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MatchSimulation extends StatefulWidget {
-  const MatchSimulation({super.key});
+  const MatchSimulation({super.key, required this.flag});
+
+  final String flag;
 
   @override
   State<MatchSimulation> createState() => _MatchSimulationState();
