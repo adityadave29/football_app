@@ -21,8 +21,6 @@ class _HomePageState extends State<HomePage> {
   List<dynamic> matches = []; //! live_data
   late Timer _timer; //r Timer for updating UI
   String storedRandomNumber = '0'; // random number for display
-  String teamSim1 = '';
-  String teamSim2 = '';
 
   @override
   void initState() {
@@ -97,9 +95,6 @@ class _HomePageState extends State<HomePage> {
           final match = matches[index];
           final team1 = match['home']['name'];
           final team2 = match['away']['name'];
-
-          teamSim1 = team1;
-          teamSim2 = team2;
 
           return ListTile(
             title: Container(
@@ -200,13 +195,6 @@ class _HomePageState extends State<HomePage> {
                         content: SingleChildScrollView(
                           child: ListBody(
                             children: <Widget>[
-                              // Text('Team 1: $team1'),
-                              // Text(
-                              //   'Team 2: $team2',
-                              //   style: TextStyle(
-                              //     color: Colors.white,
-                              //   ),
-                              // ),
                               Column(
                                 children: [
                                   Container(
@@ -270,17 +258,6 @@ class _HomePageState extends State<HomePage> {
                         actions: <Widget>[
                           Row(
                             children: [
-                              // TextButton(
-                              //   child: Text('Team1'),
-                              //   onPressed: () {
-                              //     Navigator.push(
-                              //       context,
-                              //       MaterialPageRoute(
-                              //         builder: (context) => MatchSimulation(),
-                              //       ),
-                              //     );
-                              //   },
-                              // ),
                               TextButton(
                                 child: Container(
                                   padding: EdgeInsets.only(left: 3, right: 5),
@@ -295,6 +272,8 @@ class _HomePageState extends State<HomePage> {
                                     MaterialPageRoute(
                                       builder: (context) => MatchSimulation(
                                         flag: '1',
+                                        team1: team1,
+                                        team2: team2,
                                       ),
                                     ),
                                   );
@@ -310,20 +289,6 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.w900,
                                 ),
                               ),
-                              // TextButton(
-                              //   child: Text(
-                              //     'Team2',
-                              //     textAlign: TextAlign.right,
-                              //   ),
-                              //   onPressed: () {
-                              //     Navigator.push(
-                              //       context,
-                              //       MaterialPageRoute(
-                              //         builder: (context) => MatchSimulation(),
-                              //       ),
-                              //     );
-                              //   },
-                              // ),
                               TextButton(
                                 child: Container(
                                   padding: EdgeInsets.only(left: 5, right: 3),
@@ -338,6 +303,8 @@ class _HomePageState extends State<HomePage> {
                                     MaterialPageRoute(
                                       builder: (context) => MatchSimulation(
                                         flag: '2',
+                                        team1: team1,
+                                        team2: team2,
                                       ),
                                     ),
                                   );

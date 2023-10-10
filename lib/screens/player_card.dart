@@ -27,6 +27,8 @@ class _PlayerCardState extends State<PlayerCard> {
     fetchPlayerData();
   }
 
+  final Random random = Random();
+
   Future<PlayerData?> fetchPlayerData() async {
     final Random random = Random();
     int randomNumber;
@@ -154,109 +156,112 @@ class _PlayerCardState extends State<PlayerCard> {
                                 }
                               },
                             ),
-                            Positioned(
-                              left: 0,
-                              top: 0,
-                              child: Container(
-                                width: 60,
-                                height: 100,
-                                child: Stack(
-                                  children: [
-                                    Positioned(
-                                      left: 0,
-                                      top: 0,
-                                      child: Container(
-                                        width: 44,
-                                        height: 29,
-                                        child: Stack(
-                                          children: [
-                                            Positioned(
-                                              left: 0,
-                                              top: 0,
-                                              child: Text(
-                                                'SPEED',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 10,
-                                                  fontFamily: 'DIN Pro',
-                                                  fontWeight: FontWeight.w900,
+                            //! ATTRIBUTES SECTION
+                            Container(
+                              child: Positioned(
+                                left: 0,
+                                top: 0,
+                                child: Container(
+                                  width: 60,
+                                  height: 100,
+                                  child: Stack(
+                                    children: [
+                                      Positioned(
+                                        left: 0,
+                                        top: 0,
+                                        child: Container(
+                                          width: 44,
+                                          height: 29,
+                                          child: Stack(
+                                            children: [
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                child: Text(
+                                                  'SPEED',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 10,
+                                                    fontFamily: 'DIN Pro',
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                            Positioned(
-                                              left: 0,
-                                              top: 16,
-                                              child: Container(
-                                                width: 44,
-                                                height: 13,
-                                                child: Stack(children: []),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: 0,
-                                      top: 38,
-                                      child: Container(
-                                        width: 50,
-                                        height: 29,
-                                        child: Stack(
-                                          children: [
-                                            Positioned(
-                                              left: 0,
-                                              top: 0,
-                                              child: Text(
-                                                'POWER',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 10,
-                                                  fontFamily: 'DIN Pro',
-                                                  fontWeight: FontWeight.w900,
+                                              Positioned(
+                                                left: 0,
+                                                top: 16,
+                                                child: Container(
+                                                  width: 44,
+                                                  height: 13,
+                                                  child: Stack(children: []),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Positioned(
-                                      left: 1,
-                                      top: 76,
-                                      child: Container(
-                                        width: 50,
-                                        height: 27,
-                                        child: Stack(
-                                          children: [
-                                            Positioned(
-                                              left: 0,
-                                              top: 0,
-                                              child: Text(
-                                                'DEFENCE',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 10,
-                                                  fontFamily: 'DIN Pro',
-                                                  fontWeight: FontWeight.w900,
-                                                  height: 0,
+                                      Positioned(
+                                        left: 0,
+                                        top: 38,
+                                        child: Container(
+                                          width: 50,
+                                          height: 29,
+                                          child: Stack(
+                                            children: [
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                child: Text(
+                                                  'POWER',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 10,
+                                                    fontFamily: 'DIN Pro',
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                            Positioned(
-                                              left: 0,
-                                              top: 16,
-                                              child: Container(
-                                                width: 25,
-                                                height: 11,
-                                                child: Stack(children: []),
-                                              ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Positioned(
+                                        left: 1,
+                                        top: 76,
+                                        child: Container(
+                                          width: 50,
+                                          height: 27,
+                                          child: Stack(
+                                            children: [
+                                              Positioned(
+                                                left: 0,
+                                                top: 0,
+                                                child: Text(
+                                                  'DEFENCE',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 10,
+                                                    fontFamily: 'DIN Pro',
+                                                    fontWeight: FontWeight.w900,
+                                                    height: 0,
+                                                  ),
+                                                ),
+                                              ),
+                                              Positioned(
+                                                left: 0,
+                                                top: 16,
+                                                child: Container(
+                                                  width: 25,
+                                                  height: 11,
+                                                  child: Stack(children: []),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
