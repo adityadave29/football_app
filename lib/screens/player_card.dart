@@ -54,6 +54,20 @@ class _PlayerCardState extends State<PlayerCard> {
     return player;
   }
 
+  int sum = 0;
+
+  void addToSum(int scoreToAdd) {
+    setState(() {
+      sum += scoreToAdd;
+    });
+    _updateSumInHive();
+  }
+
+  void _updateSumInHive() async {
+    var box = await Hive.openBox('sumbox');
+    await box.put('sum', sum.toString());
+  }
+
   int score = 0;
   int generateRandomNumber() {
     int max = 4; // Maximum range
@@ -326,9 +340,12 @@ class _PlayerCardState extends State<PlayerCard> {
                   // print(box.get('playerName'));
                   var box = await Hive.openBox('playerData');
                   List<String> playerNameList = box.get('playerNameList') ?? [];
-                  playerNameList.add(selectedName!);
-                  await box.put('playerNameList', playerNameList);
-
+                  if (playerNameList.length < 11) {
+                    playerNameList.add(selectedName!);
+                    await box.put('playerNameList', playerNameList);
+                    addToSum(3 * score);
+                  }
+                  addToSum(0);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -336,6 +353,7 @@ class _PlayerCardState extends State<PlayerCard> {
                         name: selectedName!,
                         id: selectedId!,
                         score: score,
+                        sum: sum,
                       ),
                     ),
                   );

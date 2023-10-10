@@ -8,8 +8,14 @@ class MyTeam extends StatefulWidget {
   final String name;
   final String id;
   final int score;
-  const MyTeam(
-      {super.key, required this.name, required this.id, required this.score});
+  final int sum;
+  const MyTeam({
+    super.key,
+    required this.name,
+    required this.id,
+    required this.score,
+    required this.sum,
+  });
 
   @override
   State<MyTeam> createState() => _MyTeamState();
@@ -36,22 +42,6 @@ class _MyTeamState extends State<MyTeam> {
       playerNameList = box.get('playerNameList') ?? [];
       print(playerNameList);
     });
-  }
-
-  int sum = 0;
-  void sumfinal() {
-    setState(() {
-      sum = (3 * score1!);
-    });
-  }
-
-  void sumFun() async {
-    var box = await Hive.openBox('sumbox');
-    await box.put('sum', {sum.toString()});
-    int dumsum = box.get('sum');
-    sum += (3 * score1!);
-    print(box.get('sum'));
-    await box.put('sum', {sum.toString()});
   }
 
   @override
@@ -82,7 +72,7 @@ class _MyTeamState extends State<MyTeam> {
               ),
               child: Center(
                 child: Text(
-                  '55',
+                  widget.sum.toString(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
@@ -114,7 +104,7 @@ class _MyTeamState extends State<MyTeam> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const HomePage(),
+                                builder: (context) => HomePage(),
                               ),
                             );
                           },

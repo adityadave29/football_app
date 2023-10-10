@@ -356,6 +356,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "percent_indicator",
+      "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/percent_indicator-4.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "petitparser",
       "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/petitparser-5.4.0",
       "packageUri": "lib/",
@@ -408,6 +414,12 @@
       "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/shelf_web_socket-1.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "simple_progress_indicators",
+      "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/simple_progress_indicators-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "sky_engine",
@@ -542,7 +554,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-10-10T04:55:18.012318Z",
+  "generated": "2023-10-10T14:43:02.144283Z",
   "generator": "pub",
   "generatorVersion": "3.1.2"
 }

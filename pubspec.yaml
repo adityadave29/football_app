@@ -42,6 +42,8 @@ dependencies:
   hive_flutter: ^1.1.0
   flutter_svg: ^0.22.0
   hive_generator: ^2.0.1
+  percent_indicator: ^4.2.3
+  simple_progress_indicators: ^0.2.0
 
 dev_dependencies:
   flutter_test:
