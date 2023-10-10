@@ -25,6 +25,14 @@ class _PlayerCardState extends State<PlayerCard> {
   void initState() {
     super.initState();
     fetchPlayerData();
+    _retrieveSumFromHive();
+  }
+
+  void _retrieveSumFromHive() async {
+    var box = await Hive.openBox('sumbox');
+    setState(() {
+      sum = int.tryParse(box.get('sum') ?? '0') ?? 0;
+    });
   }
 
   final Random random = Random();
@@ -55,7 +63,6 @@ class _PlayerCardState extends State<PlayerCard> {
   }
 
   int sum = 0;
-
   void addToSum(int scoreToAdd) {
     setState(() {
       sum += scoreToAdd;
@@ -345,7 +352,7 @@ class _PlayerCardState extends State<PlayerCard> {
                     await box.put('playerNameList', playerNameList);
                     addToSum(3 * score);
                   }
-                  addToSum(0);
+                  // addToSum(0);
                   Navigator.push(
                     context,
                     MaterialPageRoute(

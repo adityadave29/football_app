@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:football_app/screens/dice_roller.dart';
 
 class Result extends StatefulWidget {
   const Result(
@@ -132,6 +133,65 @@ class _ResultState extends State<Result> {
               ),
             )
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            // Navigate to DiceRoller screen
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const DiceRoller()),
+            );
+            // if (result != null) {
+            //   // Handle any result passed back from DiceRoller screen if needed
+            // }
+          },
+          backgroundColor: Color(0x992B303D),
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              width: 2,
+              color: Color(0xFF2B303D),
+            ),
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      width: 46,
+                      height: 50,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/dice.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: SizedBox(
+                        width: 50,
+                        height: 25,
+                        child: Text(
+                          '0',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontFamily: 'DIN Pro',
+                            fontWeight: FontWeight.w900,
+                            height: 0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
