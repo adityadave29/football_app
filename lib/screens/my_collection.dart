@@ -41,80 +41,13 @@ class _MyCollectionState extends State<MyCollection> {
         title: appBar(title: 'MY COLLECTION'), // appBar is in component
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20.0), // Add space at the top
-        child: Column(
-          children: [
-            Container(
-              width: 64,
-              height: 64,
-              decoration: ShapeDecoration(
-                color: Color(0x992B303D),
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    width: 3,
-                    strokeAlign: BorderSide.strokeAlignOutside,
-                    color: Color(0xFF2B303D),
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-              child: Center(
-                child: Text(
-                  '55',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontFamily: 'DIN Pro',
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: playerNameCollectionList.length + 1,
-                itemBuilder: (BuildContext context, int index) {
-                  if (index == playerNameCollectionList.length) {
-                    return ListTile(
-                      title: Padding(
-                        padding: const EdgeInsets.only(top: 18.0),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor: const Color(0x992B303D),
-                            side: const BorderSide(
-                              width: 2,
-                              color: Color(0xFF2B303D),
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const HomePage(),
-                              ),
-                            );
-                          },
-                          child: const SizedBox(
-                            width: 306,
-                            height: 64,
-                            child: Center(child: appBar(title: 'TO THE MATCH')),
-                          ),
-                        ),
-                      ),
-                    );
-                  } else {
-                    return ListTile(
-                      title: Text(playerNameCollectionList[index]),
-                    );
-                  }
-                },
-              ),
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        itemCount: playerNameCollectionList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text(playerNameCollectionList[index]),
+          );
+        },
       ),
     );
   }

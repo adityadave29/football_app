@@ -54,8 +54,22 @@ class _PlayerCardState extends State<PlayerCard> {
     return player;
   }
 
+  int score = 0;
+  int generateRandomNumber() {
+    int max = 4; // Maximum range
+    int min = 1; // Minimum range
+    var randomizer = new Random();
+    var randomNumber1 = min + randomizer.nextInt(max - min);
+    setState(() {
+      score = randomNumber1;
+      print(score);
+    });
+    return randomNumber1;
+  }
+
   @override
   Widget build(BuildContext context) {
+    int randomNumber = generateRandomNumber();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xFF2B303D),
@@ -163,7 +177,7 @@ class _PlayerCardState extends State<PlayerCard> {
                                 top: 0,
                                 child: Container(
                                   width: 60,
-                                  height: 100,
+                                  height: 200,
                                   child: Stack(
                                     children: [
                                       Positioned(
@@ -193,7 +207,13 @@ class _PlayerCardState extends State<PlayerCard> {
                                                 child: Container(
                                                   width: 44,
                                                   height: 13,
-                                                  child: Stack(children: []),
+                                                  child: Row(
+                                                    children: List.generate(
+                                                      randomNumber,
+                                                      (index) => Image.asset(
+                                                          'assets/images/speed.png'),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -221,6 +241,21 @@ class _PlayerCardState extends State<PlayerCard> {
                                                   ),
                                                 ),
                                               ),
+                                              Positioned(
+                                                left: 0,
+                                                top: 16,
+                                                child: Container(
+                                                  width: 44,
+                                                  height: 13,
+                                                  child: Row(
+                                                    children: List.generate(
+                                                      randomNumber,
+                                                      (index) => Image.asset(
+                                                          'assets/images/power.png'),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -230,7 +265,7 @@ class _PlayerCardState extends State<PlayerCard> {
                                         top: 76,
                                         child: Container(
                                           width: 50,
-                                          height: 27,
+                                          height: 50,
                                           child: Stack(
                                             children: [
                                               Positioned(
@@ -251,9 +286,15 @@ class _PlayerCardState extends State<PlayerCard> {
                                                 left: 0,
                                                 top: 16,
                                                 child: Container(
-                                                  width: 25,
-                                                  height: 11,
-                                                  child: Stack(children: []),
+                                                  width: 44,
+                                                  height: 25,
+                                                  child: Row(
+                                                    children: List.generate(
+                                                      randomNumber,
+                                                      (index) => Image.asset(
+                                                          'assets/images/Defense.png'),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -291,8 +332,11 @@ class _PlayerCardState extends State<PlayerCard> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          MyTeam(name: selectedName!, id: selectedId!),
+                      builder: (context) => MyTeam(
+                        name: selectedName!,
+                        id: selectedId!,
+                        score: score,
+                      ),
                     ),
                   );
                 },
