@@ -346,12 +346,16 @@ class _PlayerCardState extends State<PlayerCard> {
                   // await box.put('playerName', selectedName);
                   // print(box.get('playerName'));
                   var box = await Hive.openBox('playerData');
-                  List<String> playerNameList = box.get('playerNameList') ?? [];
-                  if (playerNameList.length < 11) {
+                  List<String> playerNameList =
+                      box.get('playerNameList')?.toSet().toList() ?? [];
+
+                  if (playerNameList.length < 22 &&
+                      !playerNameList.contains(selectedName)) {
                     playerNameList.add(selectedName!);
                     await box.put('playerNameList', playerNameList);
                     addToSum(3 * score);
                   }
+
                   // addToSum(0);
                   Navigator.push(
                     context,
@@ -381,10 +385,15 @@ class _PlayerCardState extends State<PlayerCard> {
                 onPressed: () async {
                   var box = await Hive.openBox('playerCollectionData');
                   List<String> playerNameCollectionList =
-                      box.get('playerNameCollectionList') ?? [];
-                  playerNameCollectionList.add(selectedName!);
-                  await box.put(
-                      'playerNameCollectionList', playerNameCollectionList);
+                      box.get('playerNameCollectionList')?.toSet().toList() ??
+                          [];
+
+                  if (!playerNameCollectionList.contains(selectedName)) {
+                    playerNameCollectionList.add(selectedName!);
+                    await box.put(
+                        'playerNameCollectionList', playerNameCollectionList);
+                  }
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(

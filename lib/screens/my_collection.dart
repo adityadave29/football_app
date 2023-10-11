@@ -44,6 +44,17 @@ class _MyCollectionState extends State<MyCollection> {
         itemCount: playerNameCollectionList.length,
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
+            onTap: () async {
+              var box = await Hive.openBox('playerData');
+              List<String> playerNameList =
+                  box.get('playerNameList')?.toSet().toList() ?? [];
+
+              if (playerNameList.length < 22 &&
+                  !playerNameList.contains(playerName)) {
+                playerNameList.add(playerName!);
+                await box.put('playerNameList', playerNameList);
+              }
+            },
             title: Text(playerNameCollectionList[index]),
           );
         },
