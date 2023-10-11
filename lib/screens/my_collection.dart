@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/components/appbar.dart';
-import 'package:football_app/screens/homepage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class MyCollection extends StatefulWidget {

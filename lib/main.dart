@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:football_app/screens/homepage.dart';
 import 'package:football_app/screens/player_card.dart';
 import 'package:hive/hive.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PlayerCard(),
+      home: HomePage(),
     );
   }
 }

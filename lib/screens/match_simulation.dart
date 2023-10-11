@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:football_app/screens/homepage.dart';
 import 'package:football_app/screens/result.dart';
 import 'package:simple_progress_indicators/simple_progress_indicators.dart';
 
@@ -32,8 +33,12 @@ class _MatchSimulationState extends State<MatchSimulation> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => Result(
-                team1: widget.team1, team2: widget.team2, flag: teamFlag)),
+          builder: (context) => Result(
+            team1: widget.team1,
+            team2: widget.team2,
+            flag: teamFlag,
+          ),
+        ),
       );
     }
 
