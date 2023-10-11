@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:football_app/screens/homepage.dart';
 import 'package:football_app/screens/result.dart';
+import 'package:hive/hive.dart';
 import 'package:simple_progress_indicators/simple_progress_indicators.dart';
 
 class MatchSimulation extends StatefulWidget {
@@ -21,25 +22,40 @@ class MatchSimulation extends StatefulWidget {
 }
 
 class _MatchSimulationState extends State<MatchSimulation> {
+  String? getSum;
   String teamFlag = '0';
+  int sum = 0;
   void initState() {
     super.initState();
     teamFlag = widget.flag;
+    _retrieveSumFromHive();
+  }
+
+  void _retrieveSumFromHive() async {
+    var box = await Hive.openBox('sumbox');
+    setState(() {
+      sum = int.tryParse(box.get('sum') ?? '0') ?? 0;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     void navigateToResult() {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Result(
-            team1: widget.team1,
-            team2: widget.team2,
-            flag: teamFlag,
-          ),
-        ),
-      );
+      sum > 50
+          ? Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Result(
+                  team1: widget.team1,
+                  team2: widget.team2,
+                  flag: teamFlag,
+                ),
+              ),
+            )
+          : Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
     }
 
     Future.delayed(Duration(seconds: 20), () {
