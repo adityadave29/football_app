@@ -49,7 +49,7 @@ class _MyCollectionState extends State<MyCollection> {
               List<String> playerNameList =
                   box.get('playerNameList')?.toSet().toList() ?? [];
 
-              if (playerNameList.length < 22 &&
+              if (playerNameList.length < 11 &&
                   !playerNameList.contains(playerName)) {
                 playerNameList.add(playerName!);
                 await box.put('playerNameList', playerNameList);

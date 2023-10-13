@@ -131,13 +131,26 @@ class _MatchSimulationState extends State<MatchSimulation> {
                         ),
                         Align(
                           alignment: Alignment.bottomRight,
-                          child: ProgressBarAnimation(
+                          child: Container(
                             height: 18,
                             width: 230,
-                            curve: Curves.linear,
-                            duration: const Duration(seconds: 20),
-                            color: Colors.black,
-                            backgroundColor: Colors.grey.withOpacity(0.4),
+                            decoration: ShapeDecoration(
+                              color: Color(0x992B303D),
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                  width: 3,
+                                  strokeAlign: BorderSide.strokeAlignOutside,
+                                  color: Color(0xFF2B303D),
+                                ),
+                                borderRadius: BorderRadius.circular(9),
+                              ),
+                            ),
+                            child: ProgressBarAnimation(
+                              curve: Curves.linear,
+                              duration: const Duration(seconds: 20),
+                              color: Colors.black,
+                              backgroundColor: Colors.grey.withOpacity(0.4),
+                            ),
                           ),
                         ),
                       ],

@@ -349,7 +349,7 @@ class _PlayerCardState extends State<PlayerCard> {
                   List<String> playerNameList =
                       box.get('playerNameList')?.toSet().toList() ?? [];
 
-                  if (playerNameList.length < 22 &&
+                  if (playerNameList.length < 11 &&
                       !playerNameList.contains(selectedName)) {
                     playerNameList.add(selectedName!);
                     await box.put('playerNameList', playerNameList);
@@ -357,7 +357,7 @@ class _PlayerCardState extends State<PlayerCard> {
                   }
 
                   // addToSum(0);
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => MyTeam(
@@ -394,7 +394,7 @@ class _PlayerCardState extends State<PlayerCard> {
                         'playerNameCollectionList', playerNameCollectionList);
                   }
 
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
@@ -413,3 +413,22 @@ class _PlayerCardState extends State<PlayerCard> {
         ));
   }
 }
+
+// class RepeatWidget extends StatefulWidget {
+//   const RepeatWidget({super.key});
+
+//   @override
+//   State<RepeatWidget> createState() => _RepeatWidgetState();
+// }
+
+// class _RepeatWidgetState extends State<RepeatWidget> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       itemCount: 4, // Number of times you want to display your custom widget
+//       itemBuilder: (context, index) {
+//         return PlayerCard(); // Create a new instance of your custom widget
+//       },
+//     );
+//   }
+// }
