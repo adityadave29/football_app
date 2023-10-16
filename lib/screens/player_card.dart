@@ -357,7 +357,7 @@ class _PlayerCardState extends State<PlayerCard> {
                   }
 
                   // addToSum(0);
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => MyTeam(
@@ -394,7 +394,7 @@ class _PlayerCardState extends State<PlayerCard> {
                         'playerNameCollectionList', playerNameCollectionList);
                   }
 
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) =>

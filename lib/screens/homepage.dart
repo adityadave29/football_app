@@ -305,7 +305,7 @@ class _HomePageState extends State<HomePage> {
                                   if (!isButtonDisabled) {
                                     print(_counter);
                                     _incrementCounter();
-                                    Navigator.push(
+                                    Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) => MatchSimulation(
@@ -340,7 +340,7 @@ class _HomePageState extends State<HomePage> {
                                   if (!isButtonDisabled) {
                                     print(_counter);
                                     _incrementCounter();
-                                    Navigator.push(
+                                    Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) => MatchSimulation(
@@ -377,7 +377,7 @@ class _HomePageState extends State<HomePage> {
               child: FloatingActionButton(
                 onPressed: () async {
                   // Navigate to DiceRoller screen
-                  final result = await Navigator.push(
+                  final result = await Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const DiceRoller()),
                   );

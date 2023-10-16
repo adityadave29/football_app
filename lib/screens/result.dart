@@ -67,131 +67,141 @@ class _ResultState extends State<Result> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: (widget.flag == '1')
-                              ? Text(
-                                  'My Team',
-                                  softWrap: true,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontFamily: 'DIN Pro',
-                                    fontWeight: FontWeight.w900,
+                    child: Padding(
+                      // padding: EdgeInsets.only(left: )
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: (widget.flag == '1')
+                                ? Text(
+                                    'My Team',
+                                    softWrap: true,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: 'DIN Pro',
+                                      fontWeight: FontWeight.w900,
+                                    ),
+                                  )
+                                : Text(
+                                    '${widget.team1}',
+                                    softWrap: true,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: 'DIN Pro',
+                                      fontWeight: FontWeight.w900,
+                                    ),
                                   ),
-                                )
-                              : Text(
-                                  '${widget.team1}',
-                                  softWrap: true,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontFamily: 'DIN Pro',
-                                    fontWeight: FontWeight.w900,
+                          ),
+                          Text(
+                            "-",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontFamily: 'DIN Pro',
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          Expanded(
+                            child: (widget.flag == '2')
+                                ? Text(
+                                    'My Team',
+                                    softWrap: true,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: 'DIN Pro',
+                                      fontWeight: FontWeight.w900,
+                                    ),
+                                  )
+                                : Text(
+                                    '${widget.team2}',
+                                    softWrap: true,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: 'DIN Pro',
+                                      fontWeight: FontWeight.w900,
+                                    ),
                                   ),
-                                ),
-                        ),
-                        Text(
-                          "-",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontFamily: 'DIN Pro',
-                            fontWeight: FontWeight.w900,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Container(
+                    height: 80,
+                    width: 80,
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        // Navigate to DiceRoller screen
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DiceRoller()),
+                        );
+                      },
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Color(0x992B303D)),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            side: BorderSide(
+                              width: 2,
+                              color: Color(0xFF2B303D),
+                            ),
+                            borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        Expanded(
-                          child: (widget.flag == '2')
-                              ? Text(
-                                  'My Team',
-                                  softWrap: true,
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontFamily: 'DIN Pro',
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                                )
-                              : Text(
-                                  '${widget.team2}',
-                                  softWrap: true,
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontFamily: 'DIN Pro',
-                                    fontWeight: FontWeight.w900,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Container(
+                                width: 46,
+                                height: 50,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage('assets/images/dice.png'),
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                        ),
-                      ],
+                              ),
+                              Center(
+                                child: SizedBox(
+                                  width: 50,
+                                  height: 25,
+                                  child: Text(
+                                    '0',
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontFamily: 'DIN Pro',
+                                      fontWeight: FontWeight.w900,
+                                      height: 0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
               ),
-            )
+            ),
           ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            // Navigate to DiceRoller screen
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const DiceRoller()),
-            );
-            // if (result != null) {
-            //   // Handle any result passed back from DiceRoller screen if needed
-            // }
-          },
-          backgroundColor: Color(0x992B303D),
-          shape: RoundedRectangleBorder(
-            side: BorderSide(
-              width: 2,
-              color: Color(0xFF2B303D),
-            ),
-            borderRadius: BorderRadius.circular(5),
-          ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Container(
-                      width: 46,
-                      height: 50,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/dice.png'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Center(
-                      child: SizedBox(
-                        width: 50,
-                        height: 25,
-                        child: Text(
-                          '0',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontFamily: 'DIN Pro',
-                            fontWeight: FontWeight.w900,
-                            height: 0,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );
