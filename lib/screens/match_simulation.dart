@@ -1,6 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:football_app/screens/homepage.dart';
+import 'package:football_app/screens/result.dart';
+import 'package:hive/hive.dart';
+import 'package:simple_progress_indicators/simple_progress_indicators.dart';
 
 class MatchSimulation extends StatefulWidget {
   const MatchSimulation({
@@ -19,14 +22,46 @@ class MatchSimulation extends StatefulWidget {
 }
 
 class _MatchSimulationState extends State<MatchSimulation> {
-  String? teamFlag;
+  String? getSum;
+  String teamFlag = '0';
+  int sum = 0;
   void initState() {
     super.initState();
     teamFlag = widget.flag;
+    _retrieveSumFromHive();
+  }
+
+  void _retrieveSumFromHive() async {
+    var box = await Hive.openBox('sumbox');
+    setState(() {
+      sum = int.tryParse(box.get('sum') ?? '0') ?? 0;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    void navigateToResult() {
+      sum > 50
+          ? Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Result(
+                  team1: widget.team1,
+                  team2: widget.team2,
+                  flag: teamFlag,
+                ),
+              ),
+            )
+          : Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+    }
+
+    Future.delayed(Duration(seconds: 20), () {
+      navigateToResult();
+    });
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -43,10 +78,9 @@ class _MatchSimulationState extends State<MatchSimulation> {
               ),
             ),
             BackdropFilter(
-              filter: ImageFilter.blur(
-                  sigmaX: 5.0, sigmaY: 5.0), // Adjust blurSigma as needed
+              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
               child: Container(
-                color: Colors.transparent, // Adjust as needed
+                color: Colors.transparent,
               ),
             ),
             Container(
@@ -62,6 +96,7 @@ class _MatchSimulationState extends State<MatchSimulation> {
                   Container(
                     width: 320,
                     height: 64,
+                    margin: EdgeInsets.only(left: 20),
                     child: Row(
                       children: [
                         Stack(
@@ -94,6 +129,30 @@ class _MatchSimulationState extends State<MatchSimulation> {
                             ),
                           ],
                         ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Container(
+                            height: 18,
+                            width: 230,
+                            decoration: ShapeDecoration(
+                              color: Color(0x992B303D),
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                  width: 3,
+                                  strokeAlign: BorderSide.strokeAlignOutside,
+                                  color: Color(0xFF2B303D),
+                                ),
+                                borderRadius: BorderRadius.circular(9),
+                              ),
+                            ),
+                            child: ProgressBarAnimation(
+                              curve: Curves.linear,
+                              duration: const Duration(seconds: 20),
+                              color: Colors.black,
+                              backgroundColor: Colors.grey.withOpacity(0.4),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -112,16 +171,27 @@ class _MatchSimulationState extends State<MatchSimulation> {
                     child: Row(
                       children: [
                         Expanded(
-                          child: Text(
-                            '${widget.team1}',
-                            softWrap: true,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontFamily: 'DIN Pro',
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
+                          child: (teamFlag == '1')
+                              ? Text(
+                                  'My Team',
+                                  softWrap: true,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontFamily: 'DIN Pro',
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                )
+                              : Text(
+                                  '${widget.team1}',
+                                  softWrap: true,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontFamily: 'DIN Pro',
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
                         ),
                         Text(
                           "-",
@@ -133,17 +203,29 @@ class _MatchSimulationState extends State<MatchSimulation> {
                           ),
                         ),
                         Expanded(
-                          child: Text(
-                            '${widget.team2}',
-                            softWrap: true,
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontFamily: 'DIN Pro',
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
+                          child: (teamFlag == '2')
+                              ? Text(
+                                  'My Team',
+                                  softWrap: true,
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontFamily: 'DIN Pro',
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                )
+                              : Text(
+                                  '${widget.team2}',
+                                  softWrap: true,
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontFamily: 'DIN Pro',
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
                         ),
                       ],
                     ),

@@ -171,7 +171,7 @@
     },
     {
       "name": "flutter_riverpod",
-      "rootUri": "file:///home/sahil/.pub-cache/hosted/pub.dev/flutter_riverpod-2.4.1",
+      "rootUri": "file:///home/sahil/.pub-cache/hosted/pub.dev/flutter_riverpod-2.4.3",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -356,6 +356,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "percent_indicator",
+      "rootUri": "file:///home/sahil/.pub-cache/hosted/pub.dev/percent_indicator-4.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "petitparser",
       "rootUri": "file:///home/sahil/.pub-cache/hosted/pub.dev/petitparser-5.4.0",
       "packageUri": "lib/",
@@ -393,7 +399,7 @@
     },
     {
       "name": "riverpod",
-      "rootUri": "file:///home/sahil/.pub-cache/hosted/pub.dev/riverpod-2.4.1",
+      "rootUri": "file:///home/sahil/.pub-cache/hosted/pub.dev/riverpod-2.4.3",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -410,10 +416,22 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "simple_progress_indicators",
+      "rootUri": "file:///home/sahil/.pub-cache/hosted/pub.dev/simple_progress_indicators-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///home/sahil/snap/flutter/common/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "smooth_page_indicator",
+      "rootUri": "file:///home/sahil/.pub-cache/hosted/pub.dev/smooth_page_indicator-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "source_gen",
@@ -542,7 +560,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-10-10T08:17:30.246863Z",
+  "generated": "2023-10-16T14:03:20.530056Z",
   "generator": "pub",
   "generatorVersion": "3.1.2"
 }

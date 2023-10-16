@@ -25,6 +25,14 @@ class _PlayerCardState extends State<PlayerCard> {
   void initState() {
     super.initState();
     fetchPlayerData();
+    _retrieveSumFromHive();
+  }
+
+  void _retrieveSumFromHive() async {
+    var box = await Hive.openBox('sumbox');
+    setState(() {
+      sum = int.tryParse(box.get('sum') ?? '0') ?? 0;
+    });
   }
 
   final Random random = Random();
@@ -54,8 +62,35 @@ class _PlayerCardState extends State<PlayerCard> {
     return player;
   }
 
+  int sum = 0;
+  void addToSum(int scoreToAdd) {
+    setState(() {
+      sum += scoreToAdd;
+    });
+    _updateSumInHive();
+  }
+
+  void _updateSumInHive() async {
+    var box = await Hive.openBox('sumbox');
+    await box.put('sum', sum.toString());
+  }
+
+  int score = 0;
+  int generateRandomNumber() {
+    int max = 4; // Maximum range
+    int min = 1; // Minimum range
+    var randomizer = new Random();
+    var randomNumber1 = min + randomizer.nextInt(max - min);
+    setState(() {
+      score = randomNumber1;
+      print(score);
+    });
+    return randomNumber1;
+  }
+
   @override
   Widget build(BuildContext context) {
+    int randomNumber = generateRandomNumber();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xFF2B303D),
@@ -163,7 +198,7 @@ class _PlayerCardState extends State<PlayerCard> {
                                 top: 0,
                                 child: Container(
                                   width: 60,
-                                  height: 100,
+                                  height: 200,
                                   child: Stack(
                                     children: [
                                       Positioned(
@@ -193,7 +228,13 @@ class _PlayerCardState extends State<PlayerCard> {
                                                 child: Container(
                                                   width: 44,
                                                   height: 13,
-                                                  child: Stack(children: []),
+                                                  child: Row(
+                                                    children: List.generate(
+                                                      randomNumber,
+                                                      (index) => Image.asset(
+                                                          'assets/images/speed.png'),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -221,6 +262,21 @@ class _PlayerCardState extends State<PlayerCard> {
                                                   ),
                                                 ),
                                               ),
+                                              Positioned(
+                                                left: 0,
+                                                top: 16,
+                                                child: Container(
+                                                  width: 44,
+                                                  height: 13,
+                                                  child: Row(
+                                                    children: List.generate(
+                                                      randomNumber,
+                                                      (index) => Image.asset(
+                                                          'assets/images/power.png'),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -230,7 +286,7 @@ class _PlayerCardState extends State<PlayerCard> {
                                         top: 76,
                                         child: Container(
                                           width: 50,
-                                          height: 27,
+                                          height: 50,
                                           child: Stack(
                                             children: [
                                               Positioned(
@@ -251,9 +307,15 @@ class _PlayerCardState extends State<PlayerCard> {
                                                 left: 0,
                                                 top: 16,
                                                 child: Container(
-                                                  width: 25,
-                                                  height: 11,
-                                                  child: Stack(children: []),
+                                                  width: 44,
+                                                  height: 25,
+                                                  child: Row(
+                                                    children: List.generate(
+                                                      randomNumber,
+                                                      (index) => Image.asset(
+                                                          'assets/images/Defense.png'),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -284,15 +346,26 @@ class _PlayerCardState extends State<PlayerCard> {
                   // await box.put('playerName', selectedName);
                   // print(box.get('playerName'));
                   var box = await Hive.openBox('playerData');
-                  List<String> playerNameList = box.get('playerNameList') ?? [];
-                  playerNameList.add(selectedName!);
-                  await box.put('playerNameList', playerNameList);
+                  List<String> playerNameList =
+                      box.get('playerNameList')?.toSet().toList() ?? [];
 
+                  if (playerNameList.length < 11 &&
+                      !playerNameList.contains(selectedName)) {
+                    playerNameList.add(selectedName!);
+                    await box.put('playerNameList', playerNameList);
+                    addToSum(3 * score);
+                  }
+
+                  // addToSum(0);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          MyTeam(name: selectedName!, id: selectedId!),
+                      builder: (context) => MyTeam(
+                        name: selectedName!,
+                        id: selectedId!,
+                        score: score,
+                        sum: sum,
+                      ),
                     ),
                   );
                 },
@@ -312,10 +385,15 @@ class _PlayerCardState extends State<PlayerCard> {
                 onPressed: () async {
                   var box = await Hive.openBox('playerCollectionData');
                   List<String> playerNameCollectionList =
-                      box.get('playerNameCollectionList') ?? [];
-                  playerNameCollectionList.add(selectedName!);
-                  await box.put(
-                      'playerNameCollectionList', playerNameCollectionList);
+                      box.get('playerNameCollectionList')?.toSet().toList() ??
+                          [];
+
+                  if (!playerNameCollectionList.contains(selectedName)) {
+                    playerNameCollectionList.add(selectedName!);
+                    await box.put(
+                        'playerNameCollectionList', playerNameCollectionList);
+                  }
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -335,3 +413,22 @@ class _PlayerCardState extends State<PlayerCard> {
         ));
   }
 }
+
+// class RepeatWidget extends StatefulWidget {
+//   const RepeatWidget({super.key});
+
+//   @override
+//   State<RepeatWidget> createState() => _RepeatWidgetState();
+// }
+
+// class _RepeatWidgetState extends State<RepeatWidget> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       itemCount: 4, // Number of times you want to display your custom widget
+//       itemBuilder: (context, index) {
+//         return PlayerCard(); // Create a new instance of your custom widget
+//       },
+//     );
+//   }
+// }

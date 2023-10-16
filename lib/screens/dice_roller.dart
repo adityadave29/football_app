@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:football_app/components/appbar.dart';
-import 'package:football_app/screens/player_card.dart';
+import 'package:football_app/screens/multi_screen_player_card.dart';
 import 'package:hive/hive.dart';
 
 class DiceRoller extends StatefulWidget {
@@ -82,11 +82,20 @@ class _DiceRollerState extends State<DiceRoller> {
                   final endTime = DateTime.now().add(Duration(hours: 3));
                   final timerBox = await Hive.openBox('timerBox');
                   await timerBox.put('timerEndTime', endTime.toIso8601String());
+                  int countPageView = 0;
+                  if (randomNumber >= 1 && randomNumber <= 5) countPageView = 1;
+                  if (randomNumber >= 6 && randomNumber <= 10)
+                    countPageView = 2;
+                  if (randomNumber >= 11 && randomNumber <= 15)
+                    countPageView = 3;
+                  if (randomNumber >= 16 && randomNumber <= 20)
+                    countPageView = 4;
 
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PlayerCard(),
+                      builder: (context) =>
+                          MultiScreenPlayerCard(count: countPageView),
                     ),
                   );
                 },
