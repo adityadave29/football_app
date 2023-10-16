@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:football_app/components/appbar.dart';
 import 'package:football_app/screens/multi_screen_player_card.dart';
-import 'package:football_app/screens/player_card.dart';
 import 'package:hive/hive.dart';
 
 class DiceRoller extends StatefulWidget {

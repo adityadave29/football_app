@@ -22,13 +22,48 @@ class _HomePageState extends State<HomePage> {
   late Timer _timer; //r Timer for updating UI
   String storedRandomNumber = '0'; // random number for display
 
+  int _counter = 0;
+  DateTime _currentDate = DateTime.now();
+  final int _maxPresses = 5;
+
   @override
   void initState() {
     super.initState();
     fetchData();
     _getRemainingTimeAndUpdate();
     _getStoredRandomNumber();
+    _loadCounter();
   }
+
+  Future<void> _loadCounter() async {
+    final box = Hive.box('buttonBox');
+    DateTime lastDate =
+        DateTime.parse(box.get('date') ?? _currentDate.toString());
+    _counter = box.get('counter') ?? 0;
+
+    // Check if the last press was not today
+    if (lastDate.day != _currentDate.day ||
+        lastDate.month != _currentDate.month ||
+        lastDate.year != _currentDate.year) {
+      _counter = 0;
+    }
+  }
+
+  Future<void> _incrementCounter() async {
+    final box = Hive.box('buttonBox');
+
+    // Limit the button press to 5 times a day
+    if (_counter < _maxPresses) {
+      setState(() {
+        _counter++;
+      });
+
+      box.put('counter', _counter);
+      box.put('date', _currentDate.toString());
+    }
+  }
+
+  bool get isButtonDisabled => _counter >= _maxPresses;
 
   // Start a timer to update the UI every second
   void _getRemainingTimeAndUpdate() {
@@ -267,16 +302,20 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => MatchSimulation(
-                                        flag: '1',
-                                        team1: team1,
-                                        team2: team2,
+                                  if (!isButtonDisabled) {
+                                    print(_counter);
+                                    _incrementCounter();
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => MatchSimulation(
+                                          flag: '1',
+                                          team1: team1,
+                                          team2: team2,
+                                        ),
                                       ),
-                                    ),
-                                  );
+                                    );
+                                  }
                                 },
                               ),
                               Text(
@@ -298,16 +337,20 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => MatchSimulation(
-                                        flag: '2',
-                                        team1: team1,
-                                        team2: team2,
+                                  if (!isButtonDisabled) {
+                                    print(_counter);
+                                    _incrementCounter();
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => MatchSimulation(
+                                          flag: '2',
+                                          team1: team1,
+                                          team2: team2,
+                                        ),
                                       ),
-                                    ),
-                                  );
+                                    );
+                                  }
                                 },
                               ),
                             ],
