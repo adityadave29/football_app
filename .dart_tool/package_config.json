@@ -428,6 +428,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "smooth_page_indicator",
+      "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/smooth_page_indicator-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "source_gen",
       "rootUri": "file:///Users/adityadave/.pub-cache/hosted/pub.dev/source_gen-1.4.0",
       "packageUri": "lib/",
@@ -554,7 +560,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-10-11T03:42:39.121623Z",
+  "generated": "2023-10-16T07:47:42.948770Z",
   "generator": "pub",
   "generatorVersion": "3.1.2"
 }
