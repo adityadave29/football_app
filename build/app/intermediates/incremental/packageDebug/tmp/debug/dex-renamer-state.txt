@@ -1,4 +1,0 @@
-#Mon Oct 16 19:05:29 IST 2023
-base.0=/Users/adityadave/Desktop/football_app/football_app/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex

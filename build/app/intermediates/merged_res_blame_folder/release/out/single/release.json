@@ -8,14 +8,6 @@
         "source": "com.example.football_app-main-4:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.example.football_app-merged_res-11:/layout-v16_notification_template_custom_big.xml.flat",
-        "source": "com.example.football_app-core-1.6.0-2:/layout-v16/notification_template_custom_big.xml"
-    },
-    {
-        "merged": "com.example.football_app-merged_res-11:/layout_notification_action.xml.flat",
-        "source": "com.example.football_app-core-1.6.0-2:/layout/notification_action.xml"
-    },
-    {
         "merged": "com.example.football_app-merged_res-11:/mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "com.example.football_app-main-4:/mipmap-xxhdpi/ic_launcher.png"
     },
@@ -30,10 +22,6 @@
     {
         "merged": "com.example.football_app-merged_res-11:/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "com.example.football_app-core-1.6.0-2:/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
-    },
-    {
-        "merged": "com.example.football_app-merged_res-11:/layout_notification_action_tombstone.xml.flat",
-        "source": "com.example.football_app-core-1.6.0-2:/layout/notification_action_tombstone.xml"
     },
     {
         "merged": "com.example.football_app-merged_res-11:/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
@@ -104,10 +92,6 @@
         "source": "com.example.football_app-core-1.6.0-2:/layout/custom_dialog.xml"
     },
     {
-        "merged": "com.example.football_app-merged_res-11:/drawable_launch_background.xml.flat",
-        "source": "com.example.football_app-main-4:/drawable/launch_background.xml"
-    },
-    {
         "merged": "com.example.football_app-merged_res-11:/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "com.example.football_app-core-1.6.0-2:/drawable-hdpi-v4/notification_bg_low_normal.9.png"
     },
@@ -134,10 +118,6 @@
     {
         "merged": "com.example.football_app-merged_res-11:/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
         "source": "com.example.football_app-core-1.6.0-2:/drawable-xhdpi-v4/notification_bg_normal.9.png"
-    },
-    {
-        "merged": "com.example.football_app-merged_res-11:/layout_notification_template_icon_group.xml.flat",
-        "source": "com.example.football_app-core-1.6.0-2:/layout/notification_template_icon_group.xml"
     },
     {
         "merged": "com.example.football_app-merged_res-11:/layout_notification_template_part_chronometer.xml.flat",

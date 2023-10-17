@@ -4,7 +4,7 @@
             "outputFile": "com.example.football_app-mergeReleaseResources-9:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/adityadave/Desktop/football_app/football_app/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/home/sahil/Documents/flutter_projects/football_app/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

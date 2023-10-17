@@ -1,4 +1,4 @@
-#Tue Oct 03 13:58:45 IST 2023
-base.0=/Users/adityadave/Desktop/football_app/football_app/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+#Tue Oct 17 23:23:28 IST 2023
+base.0=/home/sahil/Documents/flutter_projects/football_app/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

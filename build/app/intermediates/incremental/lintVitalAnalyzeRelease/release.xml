@@ -1,13 +1,13 @@
 <variant
     name="release"
     package="com.example.football_app"
-    minSdkVersion="19"
+    minSdkVersion="21"
     targetSdkVersion="33"
     shrinking="true"
-    mergedManifest="/Users/adityadave/Desktop/football_app/football_app/build/app/intermediates/merged_manifest/release/AndroidManifest.xml"
-    proguardFiles="/Users/adityadave/Desktop/football_app/football_app/build/app/intermediates/default_proguard_files/global/proguard-android.txt-7.3.0:/Users/adityadave/flutter/packages/flutter_tools/gradle/flutter_proguard_rules.pro:proguard-rules.pro"
-    partialResultsDir="/Users/adityadave/Desktop/football_app/football_app/build/app/intermediates/lint_vital_partial_results/release/out"
-    desugaredMethodsFiles="/Users/adityadave/.gradle/caches/transforms-3/bd65921de16db1d78bd37241e498ab28/transformed/D8BackportedDesugaredMethods.txt">
+    mergedManifest="/home/sahil/Documents/flutter_projects/football_app/build/app/intermediates/merged_manifest/release/AndroidManifest.xml"
+    proguardFiles="/home/sahil/Documents/flutter_projects/football_app/build/app/intermediates/default_proguard_files/global/proguard-android.txt-7.3.0:/home/sahil/snap/flutter/common/flutter/packages/flutter_tools/gradle/flutter_proguard_rules.pro:proguard-rules.pro"
+    partialResultsDir="/home/sahil/Documents/flutter_projects/football_app/build/app/intermediates/lint_vital_partial_results/release/out"
+    desugaredMethodsFiles="/home/sahil/.gradle/caches/transforms-3/bd65921de16db1d78bd37241e498ab28/transformed/D8BackportedDesugaredMethods.txt">
   <buildFeatures
       namespacing="REQUIRED"/>
   <sourceProviders>
@@ -32,9 +32,9 @@
         value="android.app.Application" />
   </manifestPlaceholders>
   <mainArtifact
-      classOutputs="/Users/adityadave/Desktop/football_app/football_app/build/app/intermediates/javac/release/classes:/Users/adityadave/Desktop/football_app/football_app/build/app/tmp/kotlin-classes/release:/Users/adityadave/Desktop/football_app/football_app/build/app/kotlinToolingMetadata:/Users/adityadave/Desktop/football_app/football_app/build/app/intermediates/compile_and_runtime_not_namespaced_r_class_jar/release/R.jar"
-      applicationId="com.example.football_app"
-      generatedSourceFolders="/Users/adityadave/Desktop/football_app/football_app/build/app/generated/ap_generated_sources/release/out:/Users/adityadave/Desktop/football_app/football_app/build/app/generated/aidl_source_output_dir/release/out:/Users/adityadave/Desktop/football_app/football_app/build/app/generated/source/buildConfig/release:/Users/adityadave/Desktop/football_app/football_app/build/app/generated/renderscript_source_output_dir/release/out"
-      generatedResourceFolders="/Users/adityadave/Desktop/football_app/football_app/build/app/generated/res/rs/release:/Users/adityadave/Desktop/football_app/football_app/build/app/generated/res/resValues/release">
+      classOutputs="/home/sahil/Documents/flutter_projects/football_app/build/app/intermediates/javac/release/classes:/home/sahil/Documents/flutter_projects/football_app/build/app/tmp/kotlin-classes/release:/home/sahil/Documents/flutter_projects/football_app/build/app/kotlinToolingMetadata:/home/sahil/Documents/flutter_projects/football_app/build/app/intermediates/compile_and_runtime_not_namespaced_r_class_jar/release/R.jar"
+      applicationId="com.footbdice.luckys0t"
+      generatedSourceFolders="/home/sahil/Documents/flutter_projects/football_app/build/app/generated/ap_generated_sources/release/out:/home/sahil/Documents/flutter_projects/football_app/build/app/generated/aidl_source_output_dir/release/out:/home/sahil/Documents/flutter_projects/football_app/build/app/generated/source/buildConfig/release:/home/sahil/Documents/flutter_projects/football_app/build/app/generated/renderscript_source_output_dir/release/out"
+      generatedResourceFolders="/home/sahil/Documents/flutter_projects/football_app/build/app/generated/res/rs/release:/home/sahil/Documents/flutter_projects/football_app/build/app/generated/res/resValues/release">
   </mainArtifact>
 </variant>
