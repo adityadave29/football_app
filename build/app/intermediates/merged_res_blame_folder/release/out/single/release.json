@@ -16,6 +16,18 @@
         "source": "com.example.football_app-core-1.6.0-2:/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
+        "merged": "com.example.football_app-merged_res-11:/drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "com.example.football_app-main-4:/drawable-xhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.example.football_app-merged_res-11:/drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "com.example.football_app-main-4:/drawable-xxhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "com.example.football_app-merged_res-11:/drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "com.example.football_app-main-4:/drawable-hdpi/ic_launcher_background.png"
+    },
+    {
         "merged": "com.example.football_app-merged_res-11:/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "com.example.football_app-core-1.6.0-2:/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
     },
@@ -28,12 +40,24 @@
         "source": "com.example.football_app-core-1.6.0-2:/drawable-hdpi-v4/notification_bg_normal.9.png"
     },
     {
+        "merged": "com.example.football_app-merged_res-11:/drawable-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.football_app-main-4:/drawable-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.example.football_app-merged_res-11:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.football_app-main-4:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
         "merged": "com.example.football_app-merged_res-11:/layout-v21_notification_action.xml.flat",
         "source": "com.example.football_app-core-1.6.0-2:/layout-v21/notification_action.xml"
     },
     {
         "merged": "com.example.football_app-merged_res-11:/drawable_notification_icon_background.xml.flat",
         "source": "com.example.football_app-core-1.6.0-2:/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "com.example.football_app-merged_res-11:/drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "com.example.football_app-main-4:/drawable-mdpi/ic_launcher_background.png"
     },
     {
         "merged": "com.example.football_app-merged_res-11:/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
@@ -64,6 +88,10 @@
         "source": "com.example.football_app-main-4:/drawable-v21/launch_background.xml"
     },
     {
+        "merged": "com.example.football_app-merged_res-11:/drawable-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.football_app-main-4:/drawable-hdpi/ic_launcher_foreground.png"
+    },
+    {
         "merged": "com.example.football_app-merged_res-11:/layout_notification_template_part_time.xml.flat",
         "source": "com.example.football_app-core-1.6.0-2:/layout/notification_template_part_time.xml"
     },
@@ -80,12 +108,24 @@
         "source": "com.example.football_app-main-4:/mipmap-mdpi/ic_launcher.png"
     },
     {
+        "merged": "com.example.football_app-merged_res-11:/drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "com.example.football_app-main-4:/drawable-xxxhdpi/ic_launcher_background.png"
+    },
+    {
         "merged": "com.example.football_app-merged_res-11:/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "com.example.football_app-core-1.6.0-2:/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
     },
     {
+        "merged": "com.example.football_app-merged_res-11:/drawable-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.football_app-main-4:/drawable-mdpi/ic_launcher_foreground.png"
+    },
+    {
         "merged": "com.example.football_app-merged_res-11:/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "com.example.football_app-core-1.6.0-2:/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "com.example.football_app-merged_res-11:/drawable-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.football_app-main-4:/drawable-xxhdpi/ic_launcher_foreground.png"
     },
     {
         "merged": "com.example.football_app-merged_res-11:/layout_custom_dialog.xml.flat",
@@ -118,6 +158,10 @@
     {
         "merged": "com.example.football_app-merged_res-11:/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
         "source": "com.example.football_app-core-1.6.0-2:/drawable-xhdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "com.example.football_app-merged_res-11:/drawable-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.football_app-main-4:/drawable-xxxhdpi/ic_launcher_foreground.png"
     },
     {
         "merged": "com.example.football_app-merged_res-11:/layout_notification_template_part_chronometer.xml.flat",
