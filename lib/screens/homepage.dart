@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:football_app/api.dart';
 import 'package:football_app/components/appbar.dart';
 import 'package:football_app/screens/dice_roller.dart';
+import 'package:football_app/screens/home_screen_shape.dart';
 import 'package:football_app/screens/match_simulation.dart';
 import 'package:http/http.dart' as http;
 import 'package:hive/hive.dart';
@@ -132,75 +133,97 @@ class _HomePageState extends State<HomePage> {
           final team2 = match['away']['name'];
 
           return ListTile(
-            title: Container(
-              child: Column(
-                children: [
-                  Container(
-                    child: Text(
-                      'TODAY',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color(0xFF2F3542),
-                        fontSize: 15,
-                        fontFamily: 'DIN Pro',
-                        fontWeight: FontWeight.w900,
-                      ),
+            title: Column(
+              children: [
+                Container(
+                  child: Text(
+                    'TODAY',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color(0xFF2F3542),
+                      fontSize: 15,
+                      fontFamily: 'DIN Pro',
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Container(
-                    height: 100,
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                    margin: EdgeInsets.symmetric(horizontal: 2, vertical: 5),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/ground.png'),
-                        fit: BoxFit.cover,
+                ),
+                Stack(
+                  children: [
+                    ClipPath(
+                      clipper: CustomClipPath(),
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/ground.png'),
+                            fit: BoxFit.cover,
+                            opacity: 0.4,
+                          ),
+                        ),
                       ),
                     ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            team1,
-                            softWrap: true,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontFamily: 'DIN Pro',
-                              fontWeight: FontWeight.w900,
+                    Container(
+                      height: 100, // Match the height of the ClipPath
+                      //   width: double.infinity,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              padding:
+                                  EdgeInsets.only(left: 5, right: 1, bottom: 5),
+                              child: Text(
+                                team1,
+                                softWrap: true,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize:
+                                      15, // Adjust the font size as needed
+                                  fontFamily: 'DIN Pro',
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        Text(
-                          "-",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontFamily: 'DIN Pro',
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            team2,
-                            softWrap: true,
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontFamily: 'DIN Pro',
-                              fontWeight: FontWeight.w900,
+                          Container(
+                            margin: EdgeInsets.only(bottom: 13, left: 13),
+                            child: Text(
+                              "-",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18, // Adjust the font size as needed
+                                fontFamily: 'DIN Pro',
+                                fontWeight: FontWeight.w900,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            child: Container(
+                              padding:
+                                  EdgeInsets.only(left: 5, right: 5, bottom: 5),
+                              child: Text(
+                                team2,
+                                softWrap: true,
+                                textAlign: TextAlign.right,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize:
+                                      15, // Adjust the font size as needed
+                                  fontFamily: 'DIN Pro',
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ],
             ),
+
             //! ON TAP
             onTap: () {
               showDialog(
@@ -212,150 +235,190 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Theme(
                       data: ThemeData(
-                        dialogBackgroundColor: Color(0xFF2B303D),
-                        cardColor: Color(0xFF2B303D),
+                        dialogBackgroundColor:
+                            Colors.transparent.withOpacity(0.8),
+                        // cardColor: Color(0xFF2B303D),
                       ),
-                      child: AlertDialog(
-                        title: Center(
-                          child: Text(
-                            'TODAY',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 34,
-                              fontFamily: 'DIN Pro',
-                              fontWeight: FontWeight.w900,
+                      child: Container(
+                        child: AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                            side: BorderSide(
+                              color: Colors.black, // Border color
+                              width: 2.0, // Border width
                             ),
                           ),
-                        ),
-                        content: SingleChildScrollView(
-                          child: ListBody(
-                            children: <Widget>[
-                              Column(
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    width: double.infinity,
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 20),
-                                    margin: EdgeInsets.symmetric(
-                                        horizontal: 2, vertical: 5),
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/ground.png'),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    child: Row(
+                          title: Center(
+                            child: Text(
+                              'TODAY',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 34,
+                                fontFamily: 'DIN Pro',
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ),
+                          content: SingleChildScrollView(
+                            child: ListBody(
+                              children: <Widget>[
+                                Column(
+                                  children: [
+                                    Stack(
                                       children: [
-                                        Expanded(
-                                          child: Text(
-                                            team1,
-                                            softWrap: true,
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontFamily: 'DIN Pro',
-                                              fontWeight: FontWeight.w900,
+                                        ClipPath(
+                                          clipper: CustomClipPath(),
+                                          child: Container(
+                                            height: 100,
+                                            decoration: BoxDecoration(
+                                              color: Colors.black,
+                                              image: DecorationImage(
+                                                image: AssetImage(
+                                                    'assets/images/ground.png'),
+                                                fit: BoxFit.cover,
+                                                opacity: 0.4,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                        Text(
-                                          "-",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontFamily: 'DIN Pro',
-                                            fontWeight: FontWeight.w900,
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Text(
-                                            team2,
-                                            softWrap: true,
-                                            textAlign: TextAlign.right,
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontFamily: 'DIN Pro',
-                                              fontWeight: FontWeight.w900,
-                                            ),
+                                        Container(
+                                          height:
+                                              100, // Match the height of the ClipPath
+                                          //   width: double.infinity,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Expanded(
+                                                child: Container(
+                                                  padding: EdgeInsets.only(
+                                                      left: 5, bottom: 5),
+                                                  child: Text(
+                                                    team1,
+                                                    softWrap: true,
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize:
+                                                          12, // Adjust the font size as needed
+                                                      fontFamily: 'DIN Pro',
+                                                      fontWeight:
+                                                          FontWeight.w900,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                margin: EdgeInsets.only(
+                                                    bottom: 13, left: 13),
+                                                child: Text(
+                                                  "-",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize:
+                                                        18, // Adjust the font size as needed
+                                                    fontFamily: 'DIN Pro',
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Container(
+                                                  padding: EdgeInsets.only(
+                                                      left: 5,
+                                                      right: 5,
+                                                      bottom: 5),
+                                                  child: Text(
+                                                    team2,
+                                                    softWrap: true,
+                                                    textAlign: TextAlign.right,
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize:
+                                                          12, // Adjust the font size as needed
+                                                      fontFamily: 'DIN Pro',
+                                                      fontWeight:
+                                                          FontWeight.w900,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
+                          actions: <Widget>[
+                            Row(
+                              children: [
+                                TextButton(
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 3, right: 5),
+                                    child: Image(
+                                      image: AssetImage(
+                                          'assets/images/button.png'),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    if (!isButtonDisabled) {
+                                      print(_counter);
+                                      _incrementCounter();
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => MatchSimulation(
+                                            flag: '1',
+                                            team1: team1,
+                                            team2: team2,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                  },
+                                ),
+                                Text(
+                                  'PLAY IN THIS MATCH',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 8.5,
+                                    fontFamily: 'DIN Pro',
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                                TextButton(
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 5, right: 3),
+                                    child: Image(
+                                      image: AssetImage(
+                                          'assets/images/button.png'),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    if (!isButtonDisabled) {
+                                      print(_counter);
+                                      _incrementCounter();
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => MatchSimulation(
+                                            flag: '2',
+                                            team1: team1,
+                                            team2: team2,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                  },
+                                ),
+                              ],
+                            )
+                          ],
                         ),
-                        actions: <Widget>[
-                          Row(
-                            children: [
-                              TextButton(
-                                child: Container(
-                                  padding: EdgeInsets.only(left: 3, right: 5),
-                                  child: Image(
-                                    image:
-                                        AssetImage('assets/images/button.png'),
-                                  ),
-                                ),
-                                onPressed: () {
-                                  if (!isButtonDisabled) {
-                                    print(_counter);
-                                    _incrementCounter();
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => MatchSimulation(
-                                          flag: '1',
-                                          team1: team1,
-                                          team2: team2,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                },
-                              ),
-                              Text(
-                                'PLAY IN THIS MATCH',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 8.5,
-                                  fontFamily: 'DIN Pro',
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
-                              TextButton(
-                                child: Container(
-                                  padding: EdgeInsets.only(left: 5, right: 3),
-                                  child: Image(
-                                    image:
-                                        AssetImage('assets/images/button.png'),
-                                  ),
-                                ),
-                                onPressed: () {
-                                  if (!isButtonDisabled) {
-                                    print(_counter);
-                                    _incrementCounter();
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => MatchSimulation(
-                                          flag: '2',
-                                          team1: team1,
-                                          team2: team2,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                },
-                              ),
-                            ],
-                          )
-                        ],
                       ),
                     ),
                   );
