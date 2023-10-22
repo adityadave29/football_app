@@ -52,8 +52,12 @@ class _MultiScreenPlayerCardState extends State<MultiScreenPlayerCard> {
               child: Center(
                 child: SmoothPageIndicator(
                   controller: controller, // PageController
-                  count: widget.count, // the number of pages
-                  effect: SlideEffect(), // your preferred effect
+                  count: widget
+                      .count, // the number of pages // your preferred effect
+                  effect: SlideEffect(
+                    dotColor: Colors.grey, // Set the dot color to black
+                    activeDotColor: Colors.black,
+                  ),
                   onDotClicked: (index) {},
                 ),
               ),
